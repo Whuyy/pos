@@ -51,21 +51,22 @@ var inputs = [
 ];
 
 function printReceipt(inputs) {
-    var Items = buildItems(inputs);
+    var Items = getCount(inputs);
+ //  OK
     var CartItems = buildCartItems(Items);
     var ReceiptItems = buildReceipt(CartItems);
     var Receipt = getReceipt(ReceiptItems);
     console.log(Receipt);
 }
 
-function buildItems(inputs)
+function getCount(inputs)
 {
     var Items = {};
     Items.Item = {};
     var Temp = 0;
     var count = [];
     count[0] = 1;
-    for(var x = 0; x < inputs.length - 1; x++)
+    for(x = 0; x < inputs.length - 1; x++)
     {
         if( inputs[x].barcode === inputs[x+1].barcode)
             count[Temp]++;
